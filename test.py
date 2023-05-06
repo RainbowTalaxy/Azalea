@@ -1,9 +1,9 @@
 import spacy
-
+from spacy import displacy
 
 nlp = spacy.load("en_core_web_lg")
 
-text = "‘Wow, scary thought, the boy You-Know-Who,’ said Ron quietly, as they took their places around one of the gnarled Snargaluff stumps that formed that term’s project, and began pulling on their protective gloves."
+text = 'The Conservatives\' planning reform explicitly gives rural development priority over conservation, even authorizing "off-plan" building where local people might object.'
 
 doc = nlp(text)
 
@@ -21,3 +21,5 @@ for token in doc:
         token.head.text,
         token.head.idx,
     )
+
+displacy.serve(doc, style="dep", port=8080, host="localhost")
