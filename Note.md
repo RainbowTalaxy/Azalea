@@ -21,3 +21,11 @@ pip install -r requirements.txt
 # 运行项目
 python app.py
 ```
+
+安装数据：
+
+```
+python -m nltk.downloader punkt
+
+python -m spacy download en_core_web_lg
+```
