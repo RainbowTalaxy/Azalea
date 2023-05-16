@@ -20,6 +20,8 @@ deactivate
 pip install -r requirements.txt
 # 运行项目
 python app.py
+
+python3 -m pip install -U flask-cors
 ```
 
 安装数据：
