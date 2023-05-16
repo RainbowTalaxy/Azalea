@@ -7,11 +7,6 @@ text = 'The Conservatives\' planning reform explicitly gives rural development p
 
 doc = nlp(text)
 
-for chunk in doc.noun_chunks:
-    print(
-        "[" + chunk.text + "]", chunk.root.text, chunk.root.dep_, chunk.root.head.text
-    )
-
 for token in doc:
     print(
         "[" + str(token.idx) + "]",
@@ -21,5 +16,11 @@ for token in doc:
         token.head.text,
         token.head.idx,
     )
+
+print(doc.to_json())
+
+# 新建一个文件 output.json
+with open("output.json", "w") as f:
+    f.write(str(doc.to_json()))
 
 displacy.serve(doc, style="dep", port=8080, host="localhost")
